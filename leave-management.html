@@ -1,0 +1,53 @@
+<!-- leave-management.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>Leave Management</h1>
+    </header>
+
+    <main>
+        <form id="leaveForm">
+            <label for="leaveName">Employee Name:</label>
+            <input type="text" id="leaveName" required>
+
+            <label for="leaveDays">Number of Leave Days:</label>
+            <input type="number" id="leaveDays" required>
+
+            <label for="leaveReason">Reason for Leave:</label>
+            <input type="text" id="leaveReason" required>
+
+            <button type="button" onclick="submitLeaveRequest()">Submit Request</button>
+        </form>
+
+        <div id="leaveStatus">
+            <p id="leaveResponse"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitLeaveRequest() {
+            var leaveName = document.getElementById("leaveName").value;
+            var leaveDays = document.getElementById("leaveDays").value;
+            var leaveReason = document.getElementById("leaveReason").value;
+
+            if (leaveName && leaveDays && leaveReason) {
+                document.getElementById("leaveResponse").innerText = 
+                    leaveName + "'s leave request for " + leaveDays + " day(s) has been submitted for reason: " + leaveReason;
+            } else {
+                alert("Please fill out all fields.");
+            }
+        }
+    </script>
+</body>
+</html>

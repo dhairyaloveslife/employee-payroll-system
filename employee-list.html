@@ -1,46 +1,114 @@
+<!-- employee-list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee List</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <header>
         <h1>Employee List</h1>
-        <nav>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="payroll.html">Payroll</a>
-            <a href="report.html">Reports</a>
-        </nav>
+        <input type="text" id="searchInput" placeholder="Search by name..." onkeyup="searchTable()">
     </header>
+
     <main>
-        <h2>All Employees</h2>
-        <table border="1" width="100%">
+        <table id="employeeTable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Base Salary</th>
+                    <th onclick="sortTable(0)">Employee Name</th>
+                    <th onclick="sortTable(1)">Position</th>
+                    <th onclick="sortTable(2)">Salary</th>
+                    <th onclick="sortTable(3)">Leave Taken</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
                     <td>John Doe</td>
-                    <td>HR</td>
+                    <td>HR Manager</td>
                     <td>$5000</td>
+                    <td>5</td>
                 </tr>
                 <tr>
-                    <td>2</td>
                     <td>Jane Smith</td>
-                    <td>Manager</td>
-                    <td>$7000</td>
+                    <td>Project Manager</td>
+                    <td>$6000</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>Developer</td>
+                    <td>$4000</td>
+                    <td>2</td>
                 </tr>
             </tbody>
         </table>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Sorting function for tables
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("employeeTable");
+            switching = true;
+            dir = "asc"; 
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        // Search function for table
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("employeeTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0]; // Search by first column (Employee Name)
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

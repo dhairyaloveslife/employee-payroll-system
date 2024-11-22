@@ -1,59 +1,56 @@
+<!-- payroll.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payroll</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <title>Payroll Calculator</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <header>
-        <h1>Payroll</h1>
-        <nav>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="employee-list.html">Employees</a>
-            <a href="report.html">Reports</a>
-        </nav>
+        <h1>Payroll Calculator</h1>
     </header>
+
     <main>
-        <h2>Calculate Employee Salary</h2>
         <form id="payrollForm">
-            <label for="employee">Select Employee:</label>
-            <select id="employee">
-                <option value="1">John Doe</option>
-                <option value="2">Jane Smith</option>
-            </select>
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" required>
 
-            <label for="month">Select Month:</label>
-            <select id="month">
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
-            </select>
+            <label for="workingDays">Working Days in Month:</label>
+            <input type="number" id="workingDays" required>
 
-            <label for="workingDays">Working Days (excluding weekends):</label>
-            <input type="number" id="workingDays" min="1" required>
-
-            <label for="leaveDays">Leave Days Taken:</label>
-            <input type="number" id="leaveDays" min="0" value="0" required>
+            <label for="dailyWage">Daily Wage ($):</label>
+            <input type="number" id="dailyWage" required>
 
             <button type="button" onclick="calculateSalary()">Calculate Salary</button>
         </form>
 
-        <div id="salaryResult"></div>
-        <button id="createSalarySlipButton" style="margin-top: 20px;" disabled>Create Salary Slip (PDF)</button>
+        <div id="salaryResult">
+            <p id="salaryOutput"></p>
+        </div>
     </main>
 
-    <script src="payroll.js"></script>
+    <footer>
+        <p>&copy; 2024 Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateSalary() {
+            // Get input values
+            var workingDays = document.getElementById("workingDays").value;
+            var dailyWage = document.getElementById("dailyWage").value;
+
+            // Validate the inputs
+            if (workingDays && dailyWage) {
+                var salary = workingDays * dailyWage;
+
+                // Display the result
+                document.getElementById("salaryOutput").innerText = "Total Salary: $" + salary;
+            } else {
+                alert("Please fill out all fields.");
+            }
+        }
+    </script>
 </body>
 </html>
