@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>Reports</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="employee-list.html">Employees</a>
+            <a href="payroll.html">Payroll</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Generate Reports</h2>
+        <form>
+            <label for="reportType">Report Type:</label>
+            <select id="reportType">
+                <option value="attendance">Attendance</option>
+                <option value="payroll">Payroll</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="generateReport()">Generate</button>
+        </form>
+
+        <div id="reportResult"></div>
+    </main>
+    <script>
+        function generateReport() {
+            const reportType = document.getElementById('reportType').value;
+            const resultDiv = document.getElementById('reportResult');
+
+            if (reportType === 'attendance') {
+                resultDiv.innerHTML = '<p>Attendance report generated.</p>';
+            } else if (reportType === 'payroll') {
+                resultDiv.innerHTML = '<p>Payroll report generated.</p>';
+            } else {
+                resultDiv.innerHTML = '<p>Please select a valid report type.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
