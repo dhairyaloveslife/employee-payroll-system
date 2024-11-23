@@ -3,83 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Dashboard | Employee Payroll</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Dashboard</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="payroll.html">Payroll</a>
-            <a href="employee-list.html">Employees</a>
-            <a href="report.html">Reports</a>
-        </nav>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-users"></i> Employee Payroll
+        </div>
+        <ul>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="payroll.html">Payroll</a></li>
+            <li><a href="leave-management.html">Leave Management</a></li>
+            <li><a href="employee-details.html" class="btn">Add Employee</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section class="overview">
-            <h2>Employee Overview</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Employee Name</th>
-                        <th>Position</th>
-                        <th>Salary</th>
-                        <th>Leave Taken</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Example Employee Data -->
-                    <tr>
-                        <td>John Doe</td>
-                        <td>HR Manager</td>
-                        <td>$5000</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>Project Manager</td>
-                        <td>$6000</td>
-                        <td>3</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="welcome-card">
+            <h2>Welcome, [Username]</h2>
+            <p>Here's an overview of your activities and resources.</p>
+        </div>
 
-        <section class="salary-summary">
-            <h2>Salary Summary</h2>
-            <p>Total salary paid this month: <strong>$11,000</strong></p>
-            <p>Average salary: <strong>$5,500</strong></p>
-        </section>
+        <!-- Cards Section -->
+        <div class="cards-section">
+            <div class="card">
+                <h3>Salary Details</h3>
+                <p>View your salary breakdown for the month.</p>
+                <a href="payroll.html" class="btn">Go to Payroll</a>
+            </div>
+            <div class="card">
+                <h3>Leaves</h3>
+                <p>Manage your leave requests and history.</p>
+                <a href="leave-management.html" class="btn">Manage Leaves</a>
+            </div>
+            <div class="card">
+                <h3>Team Members</h3>
+                <p>Check the team directory and collaboration tools.</p>
+                <a href="#" class="btn">View Directory</a>
+            </div>
+        </div>
 
-        <section class="leave-summary">
-            <h2>Leave Summary</h2>
-            <p>Total leave days taken: <strong>8</strong> days</p>
-            <p>Remaining leave balance: <strong>12</strong> days</p>
-        </section>
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div class="summary-box">
+                <h4>Total Working Days</h4>
+                <p>22 Days</p>
+            </div>
+            <div class="summary-box">
+                <h4>Leaves Taken</h4>
+                <p>3 Days</p>
+            </div>
+            <div class="summary-box">
+                <h4>Pending Requests</h4>
+                <p>1 Request</p>
+            </div>
+        </div>
 
-        <section class="quick-links">
-            <h2>Quick Links</h2>
-            <ul>
-                <li><a href="payroll.html">Calculate Payroll</a></li>
-                <li><a href="employee-list.html">Manage Employees</a></li>
-                <li><a href="report.html">View Reports</a></li>
-            </ul>
-        </section>
+        <!-- Monthly Report Section (Bar Chart) -->
+        <div class="chart-section">
+            <canvas id="salaryChart"></canvas>
+        </div>
+    </div>
 
-        <section class="recent-activities">
-            <h2>Recent Activities</h2>
-            <ul>
-                <li>John Doe requested 2 days off for personal reasons (Pending Approval).</li>
-                <li>Jane Smith's salary was updated for the current month.</li>
-                <li>Leave records for the month have been reviewed.</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Company Name. All rights reserved.</p>
-    </footer>
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For FontAwesome icons -->
+    <script src="dashboard.js"></script>
 </body>
 </html>

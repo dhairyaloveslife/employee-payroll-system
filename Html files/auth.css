@@ -1,27 +1,44 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom right, #4caf50, #87ceeb);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #fff;
 }
 
-.auth-container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Auth Wrapper */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+}
+
+/* Auth Container */
+.auth-container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     text-align: center;
+    color: #333;
 }
 
 .auth-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    font-size: 14px;
     margin-bottom: 20px;
-    color: #333;
+    color: #555;
 }
 
 .form-group {
@@ -40,7 +57,7 @@ input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 input:focus {
@@ -55,8 +72,9 @@ input:focus {
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .btn:hover {
@@ -71,4 +89,8 @@ input:focus {
     color: #4caf50;
     text-decoration: none;
     font-weight: bold;
+}
+
+.switch a:hover {
+    text-decoration: underline;
 }

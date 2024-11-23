@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee | Employee Payroll</title>
+<link rel="stylesheet" href="employee.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-users"></i> Employee Payroll
+        </div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="payroll.html">Payroll</a></li>
+            <li><a href="leave-management.html">Leave Management</a></li>
+            <li><a href="add-employee.html" class="active">Add Employee</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Employee Form -->
+    <div class="form-container">
+        <h1>Add Employee Details</h1>
+        <form id="employeeForm">
+            <div class="form-group">
+                <label for="empID">Employee ID</label>
+                <input type="text" id="empID" placeholder="Enter Employee ID" required>
+            </div>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="doj">Date of Joining</label>
+                <input type="date" id="doj" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" placeholder="Enter Contact Number" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" placeholder="Enter Address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" required>
+                    <option value="HR">HR</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Employee">Employee</option>
+                    <option value="Director">Director</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Add Employee</button>
+        </form>
+    </div>
+
+    <script src="employee.js"></script>
+</body>
+</html>

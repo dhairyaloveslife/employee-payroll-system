@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Employee Payroll</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Login | Company</title>
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-            <li><a href="login.html">Log In</a></li>
-        </ul>
-    </nav>
-
-    <!-- Login Container -->
-    <div class="login-container">
-        <h1>Employee Payroll System</h1>
-        <form id="loginForm">
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter your username" required>
-            
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
-            
-            <button type="submit">Login</button>
-        </form>
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <h1>Welcome Back!</h1>
+            <p>Log in to access the Employee Payroll System.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Log In</button>
+                <p class="switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </form>
+        </div>
     </div>
-    <script src="app.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>
